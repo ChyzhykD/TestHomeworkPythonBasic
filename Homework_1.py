@@ -1,4 +1,4 @@
-int_1 = 6
+int_1 = 8
 int_2 = 7
 bool_1 = int_1 == int_2
 print(bool_1)
