@@ -53,3 +53,15 @@ def divide_and_glue(string, delimiter):
 string_with_delimiter = "l/o/g/q/a/c/e/b"
 custom_delimiter = "/"
 print(divide_and_glue(string_with_delimiter, custom_delimiter))
+
+
+def print_string_by_ascii(numbers):
+    ascii_string = ""
+    for num in numbers:
+        ascii_string += chr(num)
+    print(ascii_string)
+
+
+# Example of usage:
+encoded_list = [119, 101, 108, 108, 32, 100, 111, 110, 101]
+print_string_by_ascii(encoded_list)
