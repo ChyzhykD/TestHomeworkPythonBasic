@@ -25,6 +25,7 @@ def count_symbols_with_count(string):
     return symbol_count
 
 
+# Приклад використання функції:
 print(count_symbols_without_count(sentence))
 print(count_symbols_with_count(sentence))
 
@@ -35,4 +36,3 @@ def show_longest_string(strings):
         if len(string) > len(longest_string):
             longest_string = string
     return longest_string
-
