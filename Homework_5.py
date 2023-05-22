@@ -25,7 +25,7 @@ def count_symbols_with_count(string):
     return symbol_count
 
 
-# Приклад використання функції:
+# Example of usage:
 print(count_symbols_without_count(sentence))
 print(count_symbols_with_count(sentence))
 
@@ -38,6 +38,18 @@ def show_longest_string(strings):
     return longest_string
 
 
-# Приклад використання функції:
+# Example of usage:
 list_of_strings = ["bomb", "aircraft", "bullet"]
 print(show_longest_string(list_of_strings))
+
+
+def divide_and_glue(string, delimiter):
+    words = string.split(delimiter)
+    sorted_words = sorted(words)
+    return delimiter.join(sorted_words)
+
+
+# Example of usage:
+string_with_delimiter = "l/o/g/q/a/c/e/b"
+custom_delimiter = "/"
+print(divide_and_glue(string_with_delimiter, custom_delimiter))
