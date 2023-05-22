@@ -1,24 +1,21 @@
 def show_bigger(a, b):
     if a > b:
         return a
-    else:
-        return b
+    return b
 
 
 def show_smaller(a, b, c):
     if a <= b and a <= c:
         return a
-    elif b <= a and b <= c:
+    elif b <= c:
         return b
-    else:
-        return c
+    return c
 
 
 def show_abs(num):
     if num >= 0:
         return num
-    else:
-        return -num
+    return -num
 
 
 def show_sum(a, b):
@@ -30,8 +27,7 @@ def show_sign(num):
         print("Число позитивне")
     elif num == 0:
         print("Число нульове")
-    else:
-        print("Число негативне")
+    print("Число негативне")
 
 
 # Приклад виклику функцій:
