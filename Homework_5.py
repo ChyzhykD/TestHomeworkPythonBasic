@@ -36,3 +36,8 @@ def show_longest_string(strings):
         if len(string) > len(longest_string):
             longest_string = string
     return longest_string
+
+
+# Приклад використання функції:
+list_of_strings = ["bomb", "aircraft", "bullet"]
+print(show_longest_string(list_of_strings))
