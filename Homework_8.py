@@ -8,5 +8,18 @@ class Student:
         return {'first_name': self.first_name, 'last_name': self.last_name}
 
 
-student1 = Student('Dmytro', 'Chyzhyk')
-print(student1.info())
+# Task 2:
+class Storage:
+    def __init__(self):
+        self.words = []
+
+    def add(self, word):
+        self.words.append(word)
+
+    def get(self, prefix):
+        filtered_words = [word for word in self.words if word.startswith(prefix)]
+        sorted_words = sorted(filtered_words)
+        return sorted_words[:5]
+
+
+# Task 3:
