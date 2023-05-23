@@ -22,6 +22,7 @@ def cycle_words(words, output_length):
             item_index += 1
         else:
             item_index = 0
+    return cycled_words
 
 
 # check the function:
@@ -29,3 +30,7 @@ if __name__ == '__main__':
     assert sum_of_list_items([]) == 0
     assert sum_of_list_items([1, 2]) == 3
     assert sum_of_list_items([1, [2, 3, [4], [5, 6, [7]]]]) == 28
+
+    assert cycle_words(['a', 'b', 'c'], 7) == ['a', 'b', 'c', 'a', 'b', 'c', 'a']
+    assert cycle_words(['a', 'b', 'c'], 1) == ['a']
+    assert cycle_words(['a', 'b', 'c'], 0) == []
