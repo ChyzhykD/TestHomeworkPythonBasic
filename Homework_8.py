@@ -31,13 +31,13 @@ class Course:
         self.course_name = course_name
         self.students = []
 
-    def add_student(self, student):
-        self.students.append(student)
+    def add_student(self, new_student):
+        self.students.append(new_student)
 
     def to_json(self):
         student_data = []
-        for student in self.students:
-            student_data.append(student.info())
+        for person in self.students:
+            student_data.append(person.info())
 
         course_data = {
             'course_name': self.course_name,
@@ -72,16 +72,16 @@ if __name__ == '__main__':
 
     python_basic = Course('Python basic')
     python_basic.add_student(Student('Jane', 'Doe'))
-    assert python_basic.to_json() == {
+    assert json.loads(python_basic.to_json()) == {
         'course_name': 'Python basic',
-        'students': [{'first_name': 'Jane', 'last_name': 'Doe'}],
+        'students': [{'first_name': 'Jane', 'last_name': 'Doe'}]
     }
 
     python_basic.add_student(Student('John', 'Doe'))
-    assert python_basic.to_json() == {
+    assert json.loads(python_basic.to_json()) == {
         'course_name': 'Python basic',
         'students': [
             {'first_name': 'Jane', 'last_name': 'Doe'},
-            {'first_name': 'John', 'last_name': 'Doe'},
-        ],
+            {'first_name': 'John', 'last_name': 'Doe'}
+        ]
     }
