@@ -1,6 +1,6 @@
-# import random
-# import string
-# import time
+import random
+import string
+import time
 
 
 def sum_of_list_items(arr):
@@ -25,7 +25,27 @@ def cycle_words(words, output_length):
     return cycled_words
 
 
-# check the function:
+PASSWORD = ''.join(random.choices(string.ascii_letters, k=4))
+
+
+def password_checker(password):
+    for real_pass_char, passed_pass_char in zip(PASSWORD, password):
+        if real_pass_char != passed_pass_char:
+            return
+
+        time.sleep(0.1)
+
+
+def password_cracker():
+    cracked_pass = ''
+    for char in PASSWORD:
+        for cracked_char in string.ascii_letters:
+            if cracked_char == char:
+                cracked_pass += cracked_char
+    return cracked_pass
+
+
+# check:
 if __name__ == '__main__':
     assert sum_of_list_items([]) == 0
     assert sum_of_list_items([1, 2]) == 3
@@ -34,3 +54,5 @@ if __name__ == '__main__':
     assert cycle_words(['a', 'b', 'c'], 7) == ['a', 'b', 'c', 'a', 'b', 'c', 'a']
     assert cycle_words(['a', 'b', 'c'], 1) == ['a']
     assert cycle_words(['a', 'b', 'c'], 0) == []
+
+    assert password_cracker() == PASSWORD
