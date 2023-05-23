@@ -27,8 +27,8 @@ class Storage:
 
 # Task 3:
 class Course:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, course_name):
+        self.course_name = course_name
         self.students = []
 
     def add_student(self, student):
@@ -37,10 +37,10 @@ class Course:
     def to_json(self):
         student_data = []
         for student in self.students:
-            student_data.append(student.to_dict())
+            student_data.append(student.info())
 
         course_data = {
-            'name': self.name,
+            'course_name': self.course_name,
             'students': student_data
         }
 
@@ -73,13 +73,13 @@ if __name__ == '__main__':
     python_basic = Course('Python basic')
     python_basic.add_student(Student('Jane', 'Doe'))
     assert python_basic.to_json() == {
-        'name': 'Python basic',
+        'course_name': 'Python basic',
         'students': [{'first_name': 'Jane', 'last_name': 'Doe'}],
     }
 
     python_basic.add_student(Student('John', 'Doe'))
     assert python_basic.to_json() == {
-        'name': 'Python basic',
+        'course_name': 'Python basic',
         'students': [
             {'first_name': 'Jane', 'last_name': 'Doe'},
             {'first_name': 'John', 'last_name': 'Doe'},
