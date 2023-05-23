@@ -1,3 +1,6 @@
+import json
+
+
 # Task 1:
 class Student:
     def __init__(self, first_name, last_name):
@@ -23,3 +26,22 @@ class Storage:
 
 
 # Task 3:
+class Course:
+    def __init__(self, course_name):
+        self.course_name = course_name
+        self.students = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def to_json(self):
+        student_data = []
+        for student in self.students:
+            student_data.append(student.to_dict())
+
+        course_data = {
+            'course_name': self.course_name,
+            'students': student_data
+        }
+
+        return json.dumps(course_data)
