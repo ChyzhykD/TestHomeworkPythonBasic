@@ -84,4 +84,4 @@ def analyze_big_file(file_path):
     return result
 
 
-print(analyze_big_file('C:\\Users\\User1\\Downloads\\big.txt'))
+print(analyze_big_file('TestHomeworkPythonBasic\\blob\\master\\big.txt'))
