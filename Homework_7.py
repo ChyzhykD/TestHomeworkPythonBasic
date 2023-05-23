@@ -1,3 +1,4 @@
+# task1:
 import random
 
 
@@ -41,3 +42,18 @@ get_random_values_with_default_attempts(choices=[1, 2, 3, 4], size=2)
 get_random_values([1, 2, 3, 4])
 get_random_values([1, 2, 3, 4], 3)
 get_random_values([1, 2, 3, 4], size=1)
+
+
+# task 2:
+def copy_file(source_path, destination_path):
+    source_file = open(source_path, 'r')
+    content = source_file.read()
+    destination_file = open(destination_path, 'w')
+    destination_file.write(content)
+    source_file.close()
+    destination_file.close()
+
+
+copy_file('Source_file.txt', 'Destination_file.txt')
+
+# task 3:
