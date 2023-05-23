@@ -57,3 +57,31 @@ def copy_file(source_path, destination_path):
 copy_file('Source_file.txt', 'Destination_file.txt')
 
 # task 3:
+
+
+def analyze_big_file(file_path):
+    line_count = 0
+    file_size = 0
+    char_count = {}
+    file = open(file_path, 'r')
+    for line in file:
+        line_count += 1
+        file_size += len(line.encode('utf-8'))
+
+        for char in line:
+            if char != '\n' and char != ' ':
+                char_count[char] = char_count.get(char, 0) + 1
+
+    sorted_chars = sorted(char_count.items(), key=lambda x: x[1], reverse=True)
+    top_chars = [char for char, count in sorted_chars[:3]]
+
+    result = {
+        'line_count': line_count,
+        'file_size': file_size,
+        'top_chars': top_chars
+    }
+
+    return result
+
+
+print(analyze_big_file('C:\\Users\\User1\\Downloads\\big.txt'))
