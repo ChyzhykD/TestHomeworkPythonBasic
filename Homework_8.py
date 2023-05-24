@@ -18,11 +18,18 @@ class Storage:
 
     def add(self, word):
         self.words.append(word)
+        self.words.sort()
 
     def get(self, prefix):
-        filtered_words = [word for word in self.words if word.startswith(prefix)]
-        sorted_words = sorted(filtered_words)
-        return sorted_words[:5]
+        # filtered_words = [word for word in self.words if word.startswith(prefix)]
+        # return filtered_words[:5]
+        filtered_words = []
+        for word in self.words:
+            if word.startswith(prefix):
+                filtered_words.append(word)
+            if len(filtered_words) == 5:
+                break
+        return filtered_words
 
 
 # Task 3:
