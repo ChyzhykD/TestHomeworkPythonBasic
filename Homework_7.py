@@ -1,4 +1,4 @@
-# task1:
+# Task 1:
 import random
 
 
@@ -44,7 +44,7 @@ get_random_values([1, 2, 3, 4], 3)
 get_random_values([1, 2, 3, 4], size=1)
 
 
-# task 2:
+# Task 2:
 def copy_file(source_path, destination_path):
     source_file = open(source_path, 'r')
     content = source_file.read()
@@ -56,9 +56,8 @@ def copy_file(source_path, destination_path):
 
 copy_file('Source_file.txt', 'Destination_file.txt')
 
-# task 3:
 
-
+# Task 3:
 def analyze_big_file(file_path):
     line_count = 0
     file_size = 0
