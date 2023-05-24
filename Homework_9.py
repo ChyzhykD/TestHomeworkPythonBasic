@@ -24,13 +24,9 @@ class Rectangle:
         self.top_left = top_left
         self.bottom_right = bottom_right
         if top_left.x > bottom_right.x:
-            tmp = top_left.x
-            top_left.x = bottom_right.x
-            bottom_right.x = tmp
+            top_left.x, bottom_right.x = bottom_right.x, top_left.x
         elif top_left.y < bottom_right.y:
-            tmp = top_left.y
-            top_left.y = bottom_right.y
-            bottom_right.y = tmp
+            top_left.y, bottom_right.y = bottom_right.y, top_left.y
 
     def contains(self, point):
         if (self.top_left.x <= point.x <= self.bottom_right.x and
