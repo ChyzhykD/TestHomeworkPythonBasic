@@ -29,10 +29,8 @@ class Rectangle:
             top_left.y, bottom_right.y = bottom_right.y, top_left.y
 
     def contains(self, point):
-        if (self.top_left.x <= point.x <= self.bottom_right.x and
-                self.bottom_right.y <= point.y <= self.top_left.y):
-            return True
-        return False
+        return (self.top_left.x <= point.x <= self.bottom_right.x and
+                self.bottom_right.y <= point.y <= self.top_left.y)
 
     def __contains__(self, point):
         return self.contains(point)
