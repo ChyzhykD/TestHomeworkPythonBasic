@@ -63,6 +63,7 @@ class App:
             if choice == "1":
                 course = input("Введіть назву курсу: ")
                 self.file_storage.data["courses"].append(course)
+                self.file_storage.data["courses"].sort()
                 print("Курс додано.")
             elif choice == "2":
                 courses = self.file_storage.data["courses"]
