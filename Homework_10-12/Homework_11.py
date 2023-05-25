@@ -29,8 +29,8 @@ class Pagination:
             print("Ви перебуваєте на першій сторінці.")
 
     def next_page(self):
-        start_index = (self.current_page - 1) * self.page_size
-        if start_index < len(self.data):
+        total_pages = len(self.data) // self.page_size + 1
+        if self.current_page < total_pages:
             self.current_page += 1
         else:
             print("Ви перебуваєте на останній сторінці.")
@@ -57,7 +57,6 @@ class FileStorage:
 class App:
     def __init__(self, storage):
         self.storage = storage
-        self.pagination = None
 
     def run(self):
         while True:
@@ -89,25 +88,29 @@ class App:
         if not self.storage.data:
             print('Жодного курсу не знайдено.')
         else:
+            print('Список всіх курсів:')
             courses = list(self.storage.data.keys())
-            self.pagination = Pagination(courses)
+            pagination = Pagination(courses)
 
             while True:
-                page = next(self.pagination)
-                print("Сторінка курсів:")
-                for course_name in page:
-                    print('- {}'.format(course_name))
+                try:
+                    page = next(pagination)
+                    for course_name in page:
+                        print('- {}'.format(course_name))
+                    print()
 
-                command = input("Виберіть сторінку (наступна - N, попередня - P, вийти - Q): ")
-
-                if command == 'N':
-                    self.pagination.next_page()
-                elif command == 'P':
-                    self.pagination.previous_page()
-                elif command == 'Q':
-                    break
-                else:
-                    print("Невідома команда.")
+                    command = input("Введіть команду ('наступна', 'попередня', 'вийти'): ")
+                    if command == 'наступна':
+                        pagination.next_page()
+                    elif command == 'попередня':
+                        pagination.previous_page()
+                    elif command == 'вийти':
+                        return
+                    else:
+                        print("Невідома команда.")
+                except StopIteration:
+                    print("Кінець списку курсів.")
+                    return
 
     def exit_program(self):
         self.storage.save_data()
