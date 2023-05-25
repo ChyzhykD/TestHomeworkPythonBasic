@@ -41,6 +41,7 @@ class FileStorage:
         self.file_path = file_path
         self.data = self.load_data()
 
+    @staticmethod
     def load_data(self):
         try:
             with open(self.file_path, 'r') as file:
@@ -117,8 +118,7 @@ class App:
         print('Дані було успішно збережено.')
 
 
-file_path = 'data.json'
-
-storage = FileStorage(file_path)
-app = App(storage)
-app.run()
+if __name__ == '__main__':
+    file_path = str(input('Enter storage path: '))
+    app = App(FileStorage.load_data(file_path))
+    app.run()
