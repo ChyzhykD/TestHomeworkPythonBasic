@@ -99,12 +99,12 @@ class App:
                         print('- {}'.format(course_name))
                     print()
 
-                    command = input("Введіть команду ('наступна', 'попередня', 'вийти'): ")
-                    if command == 'наступна':
+                    command = input("Виберіть сторінку (наступна - 'n', попередня - 'p', вийти - 'q'): ")
+                    if command == 'n':
                         pagination.next_page()
-                    elif command == 'попередня':
+                    elif command == 'p':
                         pagination.previous_page()
-                    elif command == 'вийти':
+                    elif command == 'q':
                         return
                     else:
                         print("Невідома команда.")
