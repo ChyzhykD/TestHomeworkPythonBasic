@@ -1,29 +1,6 @@
 import json
 
 
-class FileStorage:
-    def __init__(self, storage_file_path):
-        self.file_path = storage_file_path
-        self.data = []
-
-    def read_data(self):
-        try:
-            with open(self.file_path, 'r') as file:
-                self.data = json.load(file)
-        except FileNotFoundError:
-            self.data = []
-
-    def write_data(self):
-        with open(self.file_path, 'w') as file:
-            json.dump(self.data, file)
-
-    @staticmethod
-    def create_instance(storage_file_path):
-        storage = FileStorage(storage_file_path)
-        storage.read_data()
-        return storage
-
-
 class App:
     def __init__(self, app_file_storage):
         self.file_storage = app_file_storage
