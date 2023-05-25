@@ -57,6 +57,7 @@ class FileStorage:
 class App:
     def __init__(self, storage):
         self.storage = storage
+        self.pagination = None
 
     def run(self):
         while True:
@@ -88,9 +89,25 @@ class App:
         if not self.storage.data:
             print('Жодного курсу не знайдено.')
         else:
-            print('Список всіх курсів:')
-            for course_name in self.storage.data:
-                print('- {}'.format(course_name))
+            courses = list(self.storage.data.keys())
+            self.pagination = Pagination(courses)
+
+            while True:
+                page = next(self.pagination)
+                print("Сторінка курсів:")
+                for course_name in page:
+                    print('- {}'.format(course_name))
+
+                command = input("Виберіть сторінку (наступна - N, попередня - P, вийти - Q): ")
+
+                if command == 'N':
+                    self.pagination.next_page()
+                elif command == 'P':
+                    self.pagination.previous_page()
+                elif command == 'Q':
+                    break
+                else:
+                    print("Невідома команда.")
 
     def exit_program(self):
         self.storage.save_data()
