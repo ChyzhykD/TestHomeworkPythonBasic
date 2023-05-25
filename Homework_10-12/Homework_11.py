@@ -62,7 +62,7 @@ class App:
         print('Дані було успішно збережено.')
 
 
-file_path = 'data.json'  # шлях до файлу збереження даних
+file_path = 'data.json'
 
 storage = FileStorage(file_path)
 app = App(storage)
