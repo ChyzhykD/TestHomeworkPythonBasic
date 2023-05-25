@@ -29,8 +29,8 @@ class Pagination:
             print("Ви перебуваєте на першій сторінці.")
 
     def next_page(self):
-        total_pages = len(self.data) // self.page_size + 1
-        if self.current_page < total_pages:
+        start_index = (self.current_page - 1) * self.page_size
+        if start_index < len(self.data):
             self.current_page += 1
         else:
             print("Ви перебуваєте на останній сторінці.")
